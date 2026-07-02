@@ -17,6 +17,9 @@ async function log(stack,level,package,message) {
                 message
             })
         });
+        const data = await response.json();
+        console.log("Response",data);
+        return data;
     }
     catch(err){
         console.log(err.message);
