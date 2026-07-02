@@ -1,11 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv=require("dotenv").config();
-const app=express();
 
+const notificationroute=require("./route/notificationroute");
+
+const app=express();
+app.use(cors());
+app.use(express.json());
 app.get("/",(req,res)=>{
-    console.log("server is running");
-})
+    res.json({
+        success:true,
+        message:"Application is Running "
+    });
+});
+
+app.use("/api",notificationroute);
 
 const port=process.env.PORT;
 app.listen(port,()=>{

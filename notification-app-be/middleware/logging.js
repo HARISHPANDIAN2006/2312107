@@ -6,14 +6,14 @@ async function log(stack,level,package,message) {
         const response=await fetch(logapi ,{
             method: "POST",
             headers:{
-                "content-type":"application/json",
+                "Content-Type":"application/json",
                 "Authorization": process.env.token,
 
             },
             body:JSON.stringify({
                 stack,
                 level,
-                package:packageName,
+                package,
                 message
             })
         });
